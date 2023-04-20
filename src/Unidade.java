@@ -1,13 +1,25 @@
-public abstract class Unidade extends Entidade {
+import java.util.Scanner;
 
+public abstract class Unidade extends Entidade {
+    private String nome;
     private int danoBase;
     private int range;
 
-    public Unidade(int vida, int defesa, int danoBase, int range){
+    public Unidade(String nome, int vida, int defesa, int danoBase, int range) {
         super(vida, defesa);
-        this.danoBase=danoBase;
-        this.range=range;
+        this.nome = nome;
+        this.danoBase = danoBase;
+        this.range = range;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public abstract void ataca();
 
     public int getDanoBase() {
@@ -25,4 +37,6 @@ public abstract class Unidade extends Entidade {
     public void setRange(int range) {
         this.range = range;
     }
+
+
 }

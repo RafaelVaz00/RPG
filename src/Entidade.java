@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public abstract class Entidade {
 
     private int vida;
@@ -7,6 +9,7 @@ public abstract class Entidade {
         this.vida=vida;
         this.defesa=defesa;
     }
+    public abstract void defineValores(Scanner scan);
 
     public int getVida() {
         return vida;
