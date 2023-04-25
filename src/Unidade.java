@@ -20,7 +20,7 @@ public abstract class Unidade extends Entidade {
         this.nome = nome;
     }
 
-    public abstract void ataca();
+    public abstract void ataca(Unidade defensor);
 
     public int getDanoBase() {
         return danoBase;

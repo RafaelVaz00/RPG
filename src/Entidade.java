@@ -5,10 +5,11 @@ public abstract class Entidade {
     private int vida;
     private int defesa;
 
-    public Entidade(int vida, int defesa){
-        this.vida=vida;
-        this.defesa=defesa;
+    public Entidade(int vida, int defesa) {
+        this.vida = vida;
+        this.defesa = defesa;
     }
+
     public abstract void defineValores(Scanner scan);
 
     public int getVida() {

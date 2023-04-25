@@ -24,13 +24,18 @@ public class Arqueiro extends Unidade implements Debuff, ADistancia {
     }
 
     @Override
-    public void ataca() {
+    public void ataca(Unidade defensor) {
         System.out.println("Você atacou o inimigo e causou 4 de dano");
     }
 
     @Override
-    public void aplicaDebuff() {
-        System.out.println("Debuff aplicado!! O dano do inimigo reduziu em 2");
+    public void aplicaDebuff(Unidade defensor) {
+        int danoDefensor = defensor.getDanoBase() - 2;
+
+        defensor.setDanoBase(danoDefensor);
+
+        System.out.println("Debuff aplicado!! O dano do inimigo reduziu em 2" + defensor.getDanoBase() +
+                "/" + getDanoBase());
         iniciaCD();
     }
 

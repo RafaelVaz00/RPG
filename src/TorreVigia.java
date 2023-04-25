@@ -4,9 +4,9 @@ public class TorreVigia extends Construcao implements ADistancia {
 
     private int danoBase;
 
-    public TorreVigia(int vida, int defesa, int danoBase){
+    public TorreVigia(int vida, int defesa, int danoBase) {
         super(vida, defesa);
-        this.danoBase=danoBase;
+        this.danoBase = danoBase;
     }
 
     @Override

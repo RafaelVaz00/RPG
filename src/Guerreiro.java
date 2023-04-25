@@ -7,8 +7,9 @@ public class Guerreiro extends Unidade implements Buff, ataqueArea {
         super(nome, vida, defesa, danoBase, range);
 
     }
+
     @Override
-    public void defineValores(Scanner scan){
+    public void defineValores(Scanner scan) {
         System.out.println("Escolha o NOME da sua unidade");
         Guerreiro.this.setNome(scan.next());
 
@@ -26,13 +27,33 @@ public class Guerreiro extends Unidade implements Buff, ataqueArea {
     }
 
     @Override
-    public void ataca() {
-        System.out.println("Você atacou o inimigo e causou 5 de dano");
+    public void ataca(Unidade defensor) {
+
+        int vidaDefensor = defensor.getVida();
+
+        vidaDefensor = vidaDefensor - this.getDanoBase();
+
+        defensor.setVida(vidaDefensor);
+
+        System.out.println("Você atacou o inimigo e causou " + this.getDanoBase() + " de dano");
+        System.out.println("A vida atual do inimigo está em " + defensor.getVida() + "/" + getVida() + " HP");
+
+        if (defensor.getVida() <= 0) {
+            System.out.println(" ");
+            System.out.println("A vida do defensor chegou a 0" + "/" + getVida() + " e ele morreu!!!");
+        }
+
     }
 
     @Override
-    public void aplicaBuff() {
-        System.out.println("Buff aplicado!! O dano aumentou em 5");
+    public void aplicaBuff(Unidade guerreiro) {
+
+        int danoGuerreiro= guerreiro.getDanoBase() + 5;
+
+        guerreiro.setDanoBase(danoGuerreiro);
+
+        System.out.println("Buff aplicado!! O dano aumentou em 5 e está em " + guerreiro.getDanoBase() +
+                "/" + getDanoBase());
         iniciaCD();
     }
 
@@ -57,7 +78,7 @@ public class Guerreiro extends Unidade implements Buff, ataqueArea {
                 "vida='" + getVida() + '\'' +
                 "defesa='" + getDefesa() + '\'' +
                 "dano='" + getDanoBase() + '\'' +
-                "range='" + getRange() +
+                "range='" + getRange() + '\'' +
                 '}';
     }
 }
