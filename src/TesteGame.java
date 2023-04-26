@@ -146,12 +146,43 @@ public class TesteGame {
                             break;
                         }
                         case 2: {
-                            System.out.println("opcao 2 selecionada");
-                            break;
+
+                            System.out.println("Unidades disponíveis: ");
+                            System.out.println(" ");
+                            mostrarUnidades(listaUnidades);
+                            System.out.println(" ");
+
+                            Unidade unidade;
+
+                            System.out.println("Escolha uma unidade para realizar um ATAQUE A DISTANCIA");
+                            unidade = listaUnidades.get(Integer.parseInt(scan.next()));
+                            //erro na hora de escolher uma construção!!!!!!!! resolver!!!!!!
+                            if(unidade instanceof Arqueiro){
+                                ((Arqueiro) unidade).ataqueDistancia(unidade);
+                            } else if(unidade instanceof Mago){
+                                ((Mago) unidade).ataqueDistancia(unidade);
+                            } else if(Entidade instanceof TorreVigia){
+                                ((TorreVigia) Entidade).ataqueDistancia(unidade);
+                            }
                         }
                         case 3: {
-                            System.out.println("opcao 3 selecionada");
-                            break;
+
+                            System.out.println("Unidades disponíveis: ");
+                            System.out.println(" ");
+                            mostrarUnidades(listaUnidades);
+                            System.out.println(" ");
+
+                            Unidade unidade;
+
+                            System.out.println("Escolha uma unidade para realizar um ATAQUE EM AREA");
+                            unidade = listaUnidades.get(Integer.parseInt(scan.next()));
+
+                            if(unidade instanceof Guerreiro){
+                                ((Guerreiro) unidade).ataqueArea(unidade);
+                            } else if(unidade instanceof Mago){
+                                ((Mago) unidade).ataqueArea(unidade);
+                            }
+
                         }
                         case 4: {
                             System.out.println("opcao 4 selecionada");
@@ -159,21 +190,21 @@ public class TesteGame {
                         }
                         case 5: {
 
-                            //APRESENTA ERRO -> CONSERTAR
                             System.out.println("Unidades disponíveis: ");
                             System.out.println(" ");
                             mostrarUnidades(listaUnidades);
                             System.out.println(" ");
 
                             Unidade unidade;
-                            Unidade unit2;
 
                             System.out.println("Escolha uma unidade para aplicar um BUFF");
                             unidade = listaUnidades.get(Integer.parseInt(scan.next()));
 
-                            System.out.println("Escolha uma unidade para ser atacada");
-                            unit2 = listaUnidades.get(Integer.parseInt(scan.next()));
-
+                            if(unidade instanceof Guerreiro){
+                                ((Guerreiro) unidade).aplicaBuff(unidade);
+                            } else if(unidade instanceof Mago){
+                                ((Mago) unidade).aplicaBuff(unidade);
+                            }
 
                             break;
                         }

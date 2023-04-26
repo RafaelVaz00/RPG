@@ -34,9 +34,9 @@ public class Guerreiro extends Unidade implements Buff, ataqueArea {
         vidaDefensor = vidaDefensor - this.getDanoBase();
 
         defensor.setVida(vidaDefensor);
-
+        //consertar a vida original do alvo.
         System.out.println("Você atacou o inimigo e causou " + this.getDanoBase() + " de dano");
-        System.out.println("A vida atual do inimigo está em " + defensor.getVida() + "/" + getVida() + " HP");
+        System.out.println("A vida atual da unidade "+ defensor.getNome() + " está em " + defensor.getVida() + "/" + getVida() + " HP");
 
         if (defensor.getVida() <= 0) {
             System.out.println(" ");
@@ -58,8 +58,23 @@ public class Guerreiro extends Unidade implements Buff, ataqueArea {
     }
 
     @Override
-    public void ataqueArea() {
-        System.out.println("Você realizou um ataque em Area!");
+    public void ataqueArea(Unidade defensor) {
+
+        int vidaDefensor = defensor.getVida();
+        int danoAtacante= this.getDanoBase() + 10;
+
+        vidaDefensor = vidaDefensor - danoAtacante;
+
+        defensor.setVida(vidaDefensor);
+        //consertar a vida original do alvo.
+        System.out.println("Você atacou o inimigo com uma Habilidade em área e causou " + danoAtacante + " de dano");
+        System.out.println("A vida atual da unidade "+ defensor.getNome() + " está em " + defensor.getVida() + "/" + getVida() + " HP");
+
+        if (defensor.getVida() <= 0) {
+            System.out.println(" ");
+            System.out.println("A vida do defensor chegou a 0" + "/" + getVida() + " e ele morreu!!!");
+        }
+
     }
 
     @Override
