@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Arqueiro extends Unidade implements Debuff, ADistancia {
+public class Arqueiro extends Unidade implements Debuff, AtaqueDistancia {
 
     public Arqueiro(String nome, int vida, int defesa, int danoBase, int range) {
         super(nome, vida, defesa, danoBase, range);
@@ -25,7 +25,20 @@ public class Arqueiro extends Unidade implements Debuff, ADistancia {
 
     @Override
     public void ataca(Unidade defensor) {
-        System.out.println("Você atacou o inimigo e causou 4 de dano");
+
+        int vidaDefensor = defensor.getVida();
+
+        vidaDefensor = vidaDefensor - this.getDanoBase();
+
+        defensor.setVida(vidaDefensor);
+        //consertar a vida original do alvo.
+        System.out.println("Você atacou o inimigo e causou " + this.getDanoBase() + " de dano");
+        System.out.println("A vida atual da unidade "+ defensor.getNome() + " está em " + defensor.getVida() + "/" + getVida() + " HP");
+
+        if (defensor.getVida() <= 0) {
+            System.out.println(" ");
+            System.out.println("A vida do " + defensor.getNome() + " chegou a 0" + "/" + getVida() + " e ele morreu!!!");
+        }
     }
 
     @Override
@@ -70,12 +83,15 @@ public class Arqueiro extends Unidade implements Debuff, ADistancia {
     }
 
     public String toString() {
-        return "Classe Arqueiro{" +
-                "nome='" + getNome() + '\'' +
-                "vida'" + getVida() + '\'' +
-                "defesa='" + getDefesa() + '\'' +
-                "dano='" + getDanoBase() + '\'' +
-                "range='" + getRange() + '\'' +
-                "}";
+
+        return "=========================" + "\n"+
+                "|" + "\t"+ "Classe:  *ARQUEIRO* " + "|" + "\n" +
+                "|" + "\t" + "nome='" + getNome() + "\t"+ "\t"+  "|" + "\n" +
+                "|" + "\t" + "vida='" + getVida() + "\t"+ "\t"+ "|" + "\n" +
+                "|" + "\t" + "defesa='" + getDefesa() +"\t"+ "\t"+  "|" + "\n" +
+                "|" + "\t" + "dano='" + getDanoBase() + "\t"+ "\t"+ "|" + "\n" +
+                "|" + "\t" + "range='" + getRange()  + "\t"+ "\t"+  "|" + "\n" +
+                "========================="
+                ;
     }
 }

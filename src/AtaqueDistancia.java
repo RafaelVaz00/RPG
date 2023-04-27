@@ -1,4 +1,4 @@
-public interface ADistancia {
+public interface AtaqueDistancia {
 
     abstract void ataqueDistancia(Unidade defensor);
 }

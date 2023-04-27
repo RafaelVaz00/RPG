@@ -7,6 +7,7 @@ public class TesteGame {
         int x=0;
 
         while (x < listaUnidades.size()) {
+            System.out.println("Número da unidade[" + x + "]");
             System.out.println(listaUnidades.get(x).toString());
             x++;
         }
@@ -29,9 +30,9 @@ public class TesteGame {
         System.out.println("1- Realizar ataque");
         System.out.println("2- Realizar ataque a distancia");
         System.out.println("3- Realizar ataque em area");
-        System.out.println("4- Ativar CURA");
-        System.out.println("5- Ativar BUFF");
-        System.out.println("6- Ativar DEBUFF");
+        System.out.println("4- CURAR um aliado");
+        System.out.println("5- BUFFAR um aliado");
+        System.out.println("6- DEBUFFAR um inimigo");
         System.out.println("7- RETORNAR");
 
         return Integer.parseInt(scan.next());
@@ -126,7 +127,7 @@ public class TesteGame {
                     opAcoes = acoesUnidades(scan);
                     switch (opAcoes) {
                         case 1: {
-
+                            System.out.println("OPÇÃO DE REALIZAR ATAQUE SELECIONADA");
                             System.out.println("Unidades disponíveis: ");
                             System.out.println(" ");
                             mostrarUnidades(listaUnidades);
@@ -146,7 +147,7 @@ public class TesteGame {
                             break;
                         }
                         case 2: {
-
+                            System.out.println("OPÇÃO DE REALIZAR ATAQUE A DISTÂNCIA");
                             System.out.println("Unidades disponíveis: ");
                             System.out.println(" ");
                             mostrarUnidades(listaUnidades);
@@ -161,12 +162,12 @@ public class TesteGame {
                                 ((Arqueiro) unidade).ataqueDistancia(unidade);
                             } else if(unidade instanceof Mago){
                                 ((Mago) unidade).ataqueDistancia(unidade);
-                            } else if(Entidade instanceof TorreVigia){
+                            } /*else if(Entidade instanceof TorreVigia){
                                 ((TorreVigia) Entidade).ataqueDistancia(unidade);
-                            }
+                            }*/
                         }
                         case 3: {
-
+                            System.out.println("OPÇÃO DE REALIZAR ATAQUE EM AREA");
                             System.out.println("Unidades disponíveis: ");
                             System.out.println(" ");
                             mostrarUnidades(listaUnidades);
@@ -185,11 +186,12 @@ public class TesteGame {
 
                         }
                         case 4: {
+                            System.out.println("OPÇÃO DE CURAR UM ALIADO");
                             System.out.println("opcao 4 selecionada");
                             break;
                         }
                         case 5: {
-
+                            System.out.println("OPÇÃO DE BUFFAR UM ALIADO");
                             System.out.println("Unidades disponíveis: ");
                             System.out.println(" ");
                             mostrarUnidades(listaUnidades);
@@ -209,6 +211,7 @@ public class TesteGame {
                             break;
                         }
                         case 6: {
+                            System.out.println("OPÇÃO DE DEBUFFAR UM INIMIGO");
                             System.out.println("opcao 6 selecionada");
                             break;
                         }

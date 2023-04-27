@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TorreVigia extends Construcao implements ADistancia {
+public class TorreVigia extends Construcao implements AtaqueDistancia {
 
     private int danoBase;
 
